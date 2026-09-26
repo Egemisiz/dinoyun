@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Din Reels</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="reels-container" id="reels-feed">
+            
+            <!-- Video 1 -->
+            <div class="reels-wrapper">
+                <video class="reels-video" loop onclick="togglePlay(this)">
+                    <source src="videos/video1.mp4" type="video/mp4">
+                </video>
+                <div class="reels-overlay">
+                    <div class="reels-user"><div class="avatar">🕌</div> @din_dersi_6</div>
+                    <div class="reels-desc">6. Sınıf 1. Ünite - Peygamber Sıfatları #din #ders</div>
+                </div>
+                <div class="reels-side-bar">
+                    <div class="side-btn"><div class="side-icon" onclick="like(this)">❤️</div><span class="side-text">1.2K</span></div>
+                    <div class="side-btn"><div class="side-icon">💬</div><span class="side-text">48</span></div>
+                    <div class="side-btn"><div class="side-icon">✈️</div><span class="side-text">Paylaş</span></div>
+                </div>
+            </div>
+
+            <!-- Video 2 -->
+            <div class="reels-wrapper">
+                <video class="reels-video" loop onclick="togglePlay(this)">
+                    <source src="videos/video2.mp4" type="video/mp4">
+                </video>
+                <div class="reels-overlay">
+                    <div class="reels-user"><div class="avatar">📖</div> @din_dersi_6</div>
+                    <div class="reels-desc">İlahi Kitaplar ve Gönderildiği Peygamberler 📚</div>
+                </div>
+                <div class="reels-side-bar">
+                    <div class="side-btn"><div class="side-icon" onclick="like(this)">❤️</div><span class="side-text">2.4K</span></div>
+                    <div class="side-btn"><div class="side-icon">💬</div><span class="side-text">95</span></div>
+                    <div class="side-btn"><div class="side-icon">✈️</div><span class="side-text">Paylaş</span></div>
+                </div>
+            </div>
+
+            <!-- Video 3 -->
+            <div class="reels-wrapper">
+                <video class="reels-video" loop onclick="togglePlay(this)">
+                    <source src="videos/video3.mp4" type="video/mp4">
+                </video>
+                <div class="reels-overlay">
+                    <div class="reels-user"><div class="avatar">✨</div> @din_dersi_6</div>
+                    <div class="reels-desc">Suhuf Verilen Peygamberler Kısa Özet 📝</div>
+                </div>
+                <div class="reels-side-bar">
+                    <div class="side-btn"><div class="side-icon" onclick="like(this)">❤️</div><span class="side-text">850</span></div>
+                    <div class="side-btn"><div class="side-icon">💬</div><span class="side-text">31</span></div>
+                    <div class="side-btn"><div class="side-icon">✈️</div><span class="side-text">Paylaş</span></div>
+                </div>
+            </div>
+
+            <!-- Video 4 -->
+            <div class="reels-wrapper">
+                <video class="reels-video" loop onclick="togglePlay(this)">
+                    <source src="videos/video4.mp4" type="video/mp4">
+                </video>
+                <div class="reels-overlay">
+                    <div class="reels-user"><div class="avatar">🌟</div> @din_dersi_6</div>
+                    <div class="reels-desc">Kunut Duaları ve Anlamları 🙏</div>
+                </div>
+                <div class="reels-side-bar">
+                    <div class="side-btn"><div class="side-icon" onclick="like(this)">❤️</div><span class="side-text">3.1K</span></div>
+                    <div class="side-btn"><div class="side-icon">💬</div><span class="side-text">120</span></div>
+                    <div class="side-btn"><div class="side-icon">✈️</div><span class="side-text">Paylaş</span></div>
+                </div>
+            </div>
+
+        </div>
+
+        <nav class="bottom-nav">
+            <a href="index.html" class="nav-item"><span class="nav-icon">🏠</span>Ana Sayfa</a>
+            <a href="oyun.html" class="nav-item"><span class="nav-icon">⚔️</span>Oyun</a>
+            <a href="reels.html" class="nav-item active"><span class="nav-icon">📱</span>Reels</a>
+        </nav>
+    </div>
+
+    <script>
+        // Videoya tıklayınca Oynat/Durdur
+        function togglePlay(video) {
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        }
+
+        // Beğeni Butonu
+        function like(el) {
+            el.style.color = el.style.color === 'red' ? 'white' : 'red';
+        }
+
+        // Ekran kaydırıldığında sadece ekrandaki videoyu oynat
+        const videos = document.querySelectorAll('.reels-video');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.play().catch(() => {});
+                } else {
+                    entry.target.pause();
+                }
+            });
+        }, { threshold: 0.6 });
+
+        videos.forEach(v => observer.observe(v));
+    </script>
+</body>
+</html>

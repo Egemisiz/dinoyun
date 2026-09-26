@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>İslam Royale</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="content" style="padding: 10px;">
+            <div class="game-header">
+                <div>İlim İksiri: <span id="elixir-count">3</span>/10</div>
+                <div class="elixir-bg"><div id="elixir-fill" class="elixir-fill"></div></div>
+            </div>
+
+            <div class="arena">
+                <div class="tower enemy">Rakip<br><span id="enemy-hp">1000</span> HP</div>
+                <div class="tower">Kulem<br><span id="my-hp">1000</span> HP</div>
+            </div>
+
+            <div class="cards">
+                <div class="card" onclick="playCard('Sıdk Saldırısı', 3)">⚔️ Sıdk<br>(3 İksir)</div>
+                <div class="card" onclick="playCard('Fetanet Zekası', 4)">🧠 Fetanet<br>(4 İksir)</div>
+                <div class="card" onclick="playCard('İlahi Kitap', 5)">📖 Kitap<br>(5 İksir)</div>
+            </div>
+        </div>
+
+        <!-- Soru Penceresi -->
+        <div id="quiz-modal" class="modal">
+            <div class="modal-box">
+                <h3 id="quiz-q" style="margin-bottom: 12px; font-size: 15px;"></h3>
+                <div id="quiz-opts"></div>
+            </div>
+        </div>
+
+        <nav class="bottom-nav">
+            <a href="index.html" class="nav-item">🏠 Ana Sayfa</a>
+            <a href="oyun.html" class="nav-item active">⚔️ Oyun</a>
+            <a href="reels.html" class="nav-item">📱 Reels</a>
+        </nav>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
